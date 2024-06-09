@@ -32,13 +32,14 @@ app.use(express.json());
 
 app.post("/detection", async (request, response) => {
   const { text } = request.body;
-  // const detectionResults = await fetchData(text);
-  // response.status(200).json(detectionResults);
-  response.status(200).json({
-    success: true,
-    score: 27.750000000000004,
-    message: null,
-  });
+  console.log("Request " + text);
+  const detectionResults = await fetchData(text);
+  response.status(200).json(detectionResults);
+  // response.status(200).json({
+  //   success: true,
+  //   score: 27.750000000000004,
+  //   message: null,
+  // });
 });
 
 const port = 4300;
